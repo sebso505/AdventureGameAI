@@ -16,3 +16,5 @@ if __name__ == '__main__':
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
 
 #Modific ceva si dau pull.
+
+# THIS IS HARRY POTTER LEGACY GAME BOIIIIII
