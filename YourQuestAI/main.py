@@ -21,8 +21,14 @@ if __name__ == '__main__':
 # THIS IS HARRY POTTER LEGACY GAME BOIIIIII
 
 
+#Yo, amazon did you wrong boy
+
+#Am schimbat acest branch pentru ca asa mi-a cerut sefu meu Sebi
+
+
 
 #Yes , i am multumit now.
 #Amazon did you wrong boi.
 
 #STEP STEP STEp
+#change
