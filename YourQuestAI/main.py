@@ -18,3 +18,5 @@ if __name__ == '__main__':
 
 
 #Yo, amazon did you wrong boy
+
+#Am schimbat acest branch pentru ca asa mi-a cerut sefu meu Sebi
