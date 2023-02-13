@@ -19,12 +19,15 @@
         Welcome to your next adventure!
     </div>
 
-  <form action="/action_page.php">
+  <form>
+      <form method="GET">
+    <input name="variable">
+    <input type="submit">
+</form>
       <label for="fname"><div class="textask">What is your name, Adventurer?</div></label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name...">
-
+    <input type="text" id="fname" name="variable" placeholder="Your name...">
     <label for="lname"><div class="textask">Tell me a book/videogame:</div></label>
-    <input type="text" id="lname" name="lastname" placeholder="Book/Videogame...">
+    <input type="text" id="lname" name="variable2" placeholder="Book/Videogame...">
 
     <input type="submit" value="START YOUR JOURNEY">
   </form>
