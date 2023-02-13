@@ -1,10 +1,10 @@
 
+import openai
+
+
+
+
 import flask
-
-
-# Create the application.
-APP = flask.Flask(__name__)
-
 
 @APP.route('/')
 def index():
