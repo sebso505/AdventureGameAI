@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 body {
   background-image: url("images/start_background.jpg");
   background-repeat: no-repeat;
@@ -7,27 +7,69 @@ body {
 }
 
 .first{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 40px;
-  color: #b99d01;
+  color: #ffffff;
   text-align: center;
   padding: 10px;
+  text-shadow: 2px 2px 5px black;
+  margin-top:20px;
 }
 .forma{
   height: 32em;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 70%;
   border: 3px;
   border-radius: 10px;
   border-color: #b99d01;
   background-color: rgba(14, 50, 57, 0.7);
-  margin-top:17em;
+  margin-top:1em;
   border-style: solid;
 }
 
-.logo{
-  background-image: url("images/logo.png");
-  background-repeat: no-repeat;
-  height: 20em;
-  margin: auto;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+input[type=text], select {
+  width: 50%;
+  padding: 15px 0px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 3px solid #b99d01;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 3em;
+  margin-top: 2em;
+}
+.textask{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  color: #b99d01;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+input[type=submit] {
+  width: 50%;
+  padding: 15px 0px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #55bdff;
+  color: white;
+  display: block;
+  border: 3px solid #009cff;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 5em;
+}
+input[type=submit]:hover {
+  background-color: #a0dafe;
+}
+
