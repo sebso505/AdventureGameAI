@@ -6,8 +6,6 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-
-
 }
 
 
@@ -72,7 +70,6 @@ input[type=submit] {
   margin-left:auto;
   margin-right:auto;
   font-size: 16px;
-
 }
 input[type=submit]:hover {
   background-color: #a0dafe;
@@ -113,7 +110,6 @@ input[type=submit]:hover {
    height:97vh;
    margin:5px;
    padding:5px;
-
     }
 
 .border2{
