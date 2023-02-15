@@ -18,12 +18,12 @@
         Welcome to your next adventure!
     </div>
 
-  <form>
-      <label for="fname"><div class="textask">What is your name, Adventurer?</div></label>
-    <input type="text" id="fname" name="name" placeholder="Your name...">
+  <form action="" method="POST">
+      <label for="name"> <div class="textask">What is your name, Adventurer?</div></label>
+    <input type="text" id="name" name="variableName" placeholder="Your name..." required>
        <button class="button">RANDOM</button>
-    <label for="lname"><div class="textask">Tell me a book/videogame:</div></label>
-      <input type="text" id="lname" name="story" placeholder="Book/Videogame...">
+    <label for="story"><div class="textask">Tell me a book/videogame:</div></label>
+      <input type="text"  id="story" name="variableStory" placeholder="Book/Videogame..." required>
       <button class="button">RANDOM</button>
       <input type="submit" value="START YOUR JOURNEY">
   </form>
@@ -35,3 +35,14 @@
 </html>
 
 
+<div class="forma">
+    <div class="first">
+        Welcome to your next adventure!
+    </div>
+
+  <form action="" method="POST">
+      <label for="fname"><div class="textask">What is your name, Adventurer?</div></label>
+    <input type="text" id="fname" name="variableName" placeholder="Your name..." required>
+    <label for="lname"><div class="textask">Tell me a book/videogame:</div></label>
+    <input type="text" id="lname" name="variableStory" placeholder="Book/Videogame..." required>
+    <input type="submit" value="START YOUR JOURNEY">

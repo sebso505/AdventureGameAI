@@ -23,7 +23,7 @@ def add():
         promptStory += request.form.get('variableStory')
         print(promptName)
         print(promptStory)
-        return flask.render_template('index.html', name="Cristian Maestrul Codului")
+        return flask.render_template('gameTab.html', name = promptName)
 
 
 
