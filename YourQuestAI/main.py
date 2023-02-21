@@ -84,8 +84,8 @@ def add():
 
 @APP.route('/' , methods=['POST'])
 def add():
-    global promptName;
-    global promptStory;
+    global promptName
+    global promptStory
     if request.method == 'POST':
         promptName += request.form.get('variableName')
         promptStory += request.form.get('variableStory')
@@ -109,7 +109,7 @@ def add():
 
 
 @APP.route('/GameTab', methods=['POST'])
-def add():
+def add1():
     global promptName
     global promptStory
     global currentSummary
