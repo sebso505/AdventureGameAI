@@ -60,7 +60,8 @@ class Talking_Robot():
     def choices_separated(self):
         self.options = []
         self.options = self.choices.split("\n")
-        self.final_choice = [self.options[2], self.options[3], self.options[4]]
+        print(self.options)
+        self.final_choice = [self.options[0], self.options[1], self.options[2]]
         return self.final_choice
 
 game = Talking_Robot(promptName, promptStory, currentSummary, currentChoice, currentStep)
@@ -73,19 +74,14 @@ def index():
     return flask.render_template('introPage.html', name='Sebi')
 
 
-@APP.route('/GameTab' , methods=['POST'])
-def add():
+@APP.route('/', methods=['POST'])
+def add1():
     global promptName
     global promptStory
     global currentSummary
     global currentChoice
     global currentStep
     global game_on
-
-@APP.route('/' , methods=['POST'])
-def add():
-    global promptName;
-    global promptStory;
     if request.method == 'POST':
         promptName += request.form.get('variableName')
         promptStory += request.form.get('variableStory')
@@ -97,6 +93,7 @@ def add():
         game.choices_robot()
         bad_choice = ''
         choices = game.choices_separated()
+        print(choices)
         i = 0
         for i, choice in enumerate(choices):
             if '~' in choice:
@@ -109,7 +106,7 @@ def add():
 
 
 @APP.route('/GameTab', methods=['POST'])
-def add():
+def add2():
     global promptName
     global promptStory
     global currentSummary
@@ -124,7 +121,7 @@ def add():
         if game_on == True:
             while currentStep < 10 and game_on:
                 game.update_params(currentSummary, currentChoice, currentStep)
-                plot=game.plot_of_game()
+                plot = game.plot_of_game()
                 currentSummary = game.summary_of_plot()
                 game.choices_robot()
                 bad_choice = ''
