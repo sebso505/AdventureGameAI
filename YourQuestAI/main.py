@@ -1,4 +1,3 @@
-
 import flask
 from flask import request
 import openai
@@ -14,7 +13,6 @@ currentSummary = ''
 currentChoice = ''
 currentStep = 0
 game_on = True
-
 
 class talkingRobot:
     def __init__(self, promptName, promptStory, currentSummary, currentChoice, currentStep):
@@ -86,10 +84,9 @@ class talkingRobot:
     def choices_separated(self):
         self.options = []
         self.options = self.choices.split("\n")
-        self.final_choice = [self.options[2], self.options[3], self.options[4]]
+        print(self.options)
+        self.final_choice = [self.options[0], self.options[1], self.options[2]]
         return self.final_choice
-
-
 
 
 @APP.route('/')
@@ -129,36 +126,6 @@ def add1():
             currentStep += 1
             print(currentStep)
             return flask.render_template('GameTab.html', plot=plot, choice1=choices[0], choice2=choices[1], choice3=choices[2], bad_choice=bad_choice)
-
-
-@APP.route('/GameTab', methods=['POST'])
-def add2():
-    global promptName
-    global promptStory
-    global currentSummary
-    global currentChoice
-    global currentStep
-    global game_on
-    if request.method == 'POST':
-        if game_on:
-            while currentStep < 10 and game_on:
-                game.update_params(currentSummary, currentChoice, currentStep)
-                plot = game.plot_of_game()
-                currentSummary = game.summary_of_plot()
-                game.choices_robot()
-                bad_choice = ''
-                choices = game.choices_separated()
-                for i, choice in enumerate(choices):
-                    if '~' in choice:
-                        choices[i] = choice.replace('~', '')
-                        bad_choice = choices[i]
-                if currentChoice == bad_choice or currentStep == 10:
-                    plot = game.plot_of_game()
-                    game_on = False
-                currentStep += 1
-                choices.clear()
-                return flask.render_template('GameTab.html')
-
 
 if __name__ == '__main__':
     APP.debug = True
