@@ -72,8 +72,7 @@ def index():
     """
     return flask.render_template('introPage.html', name='Sebi')
 
-
-@APP.route('/GameTab' , methods=['POST'])
+@APP.route('/' , methods=['POST'])
 def add():
     global promptName
     global promptStory
@@ -81,9 +80,6 @@ def add():
     global currentChoice
     global currentStep
     global game_on
-
-@APP.route('/' , methods=['POST'])
-def add():
     global promptName;
     global promptStory;
     if request.method == 'POST':
