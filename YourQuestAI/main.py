@@ -1,3 +1,4 @@
+
 import flask
 from flask import request
 
@@ -65,14 +66,13 @@ class Talking_Robot():
 
 game = Talking_Robot(promptName, promptStory, currentSummary, currentChoice, currentStep)
 
-
 @APP.route('/')
 def index():
     """ Displays the index page accessible at '/'
     """
     return flask.render_template('introPage.html', name='Sebi')
 
-@APP.route('/' , methods=['POST'])
+@APP.route('/GameTab' , methods=['POST'])
 def add():
     global promptName
     global promptStory
@@ -80,8 +80,6 @@ def add():
     global currentChoice
     global currentStep
     global game_on
-    global promptName
-    global promptStory
     if request.method == 'POST':
         promptName += request.form.get('variableName')
         promptStory += request.form.get('variableStory')
@@ -137,9 +135,6 @@ def add():
                 currentStep += 1
                 choices.clear()
                 return flask.render_template('GameTab.html')
-
-
-
 
 
 if __name__ == '__main__':
