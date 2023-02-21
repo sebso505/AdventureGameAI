@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="utf-8"/>
+    <title>YourQuestAI</title>
+    <link href="{{ url_for('static',
+              filename='styleForGameTab.css')}}" rel="stylesheet"
+          type="text/css"/>
+
+</head>
+<body>
+<div class="altContainer">
+    <div class="containerMain">
+        <div class="containerTextAndImage">
+            <div class="text">
+                You are Johnny and you are entering the world of Harry Potter. You find yourself in the midst of a
+                wizarding world full of mystery, wonders and adventure. You have been chosen to pursue a quest: to find
+                the Philosopher's Stone and protect the world against dark forces. You must explore the magical world
+                and uncover the secrets of the Stone before it falls into the wrong hands. As you venture forth and
+                discover the various mysteries, you are accompanied by an owl, who serves as your guide. The stakes are
+                high and the dangers great, but you must face them all and prove yourself worthy of the challenge. After
+                all, the fate of the world is in your hands. What is your choice, Johnny?
+            </div>
+            <div class="image">
+                <img src="static/generated/image13.jpg">
+            </div>
+        </div>
+        <div class="containerButtons">
+            <form action="" method="POST">
+                <button class="choice">
+                    <div name="choice1" class="textMain">game Choice 1</div>
+                </button>
+                <button class="choice">
+                    <div name="choice2" class="textMain">game Choice 2</div>
+                </button>
+                <button class="choice">
+                    <div name="choice2" class="textMain">game Choice 3</div>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="grad"></div>
+<script>
+let buttonList = document.querySelectorAll("button");
+buttonList.forEach(function(i){
+  i.addEventListener("click", function(thisButton){
+   var selectedChoice = thisButton.target.innerHTML;
+  })
+})
+</script>
+</body>
+</html>
