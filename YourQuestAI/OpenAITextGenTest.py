@@ -1,16 +1,5 @@
-
-import flask
-from flask import request
-
-# Create the application.
-APP = flask.Flask(__name__)
-
-promptName = ''
-promptStory = ''
-currentSummary = ''
-currentChoice = ''
-currentStep = 0
-game_on = True
+import openai
+from main import game_on, promptName, promptStory, currentSummary, currentChoice, currentStep
 class Talking_Robot():
 
     def __init__(self, promptName, promptStory, currentSummary, currentChoice, currentStep):
@@ -54,7 +43,7 @@ class Talking_Robot():
         return self.summary
 
     def choices_robot(self):
-        self.choices = "Test choice 1\nTest choice2\nTest choice3~"
+        self.choices = "Test choice 1\nTest choice2\nTest choice3"
         print(f"The choices are: {self.choices}")
         return self.choices
 
@@ -65,80 +54,3 @@ class Talking_Robot():
         return self.final_choice
 
 game = Talking_Robot(promptName, promptStory, currentSummary, currentChoice, currentStep)
-
-@APP.route('/')
-def index():
-    """ Displays the index page accessible at '/'
-    """
-    return flask.render_template('introPage.html', name='Sebi')
-
-@APP.route('/GameTab' , methods=['POST'])
-def add():
-    global promptName
-    global promptStory
-    global currentSummary
-    global currentChoice
-    global currentStep
-    global game_on
-    if request.method == 'POST':
-        promptName += request.form.get('variableName')
-        promptStory += request.form.get('variableStory')
-        print(promptName)
-        print(promptStory)
-        game.update_params(currentSummary, currentChoice, currentStep)
-        plot = game.plot_of_game()
-        currentSummary = game.summary_of_plot()
-        game.choices_robot()
-        bad_choice = ''
-        choices = game.choices_separated()
-        i = 0
-        for i, choice in enumerate(choices):
-            if '~' in choice:
-                choices[i] = choice.replace('~', '')
-                bad_choice = choices[i]
-            i += 1
-        currentStep += 1
-        choices.clear()
-        return flask.render_template('GameTab.html')
-
-
-@APP.route('/GameTab', methods=['POST'])
-def add():
-    global promptName
-    global promptStory
-    global currentSummary
-    global currentChoice
-    global currentStep
-    global game_on
-    if request.method == 'POST':
-        currentChoice += request.form.get('choiceSelected')
-        promptStory += request.form.get('variableStory')
-        print(promptName)
-        print(promptStory)
-        if game_on == True:
-            while currentStep < 10 and game_on:
-                game.update_params(currentSummary, currentChoice, currentStep)
-                plot=game.plot_of_game()
-                currentSummary = game.summary_of_plot()
-                game.choices_robot()
-                bad_choice = ''
-                choices = game.choices_separated()
-                i = 0
-                for i, choice in enumerate(choices):
-                    if '~' in choice:
-                        choices[i] = choice.replace('~', '')
-                        bad_choice = choices[i]
-                    i += 1
-                if currentChoice == bad_choice or currentStep == 10:
-                    plot = game.plot_of_game()
-                    game_on = False
-                currentStep += 1
-                choices.clear()
-                return flask.render_template('GameTab.html')
-
-
-if __name__ == '__main__':
-    APP.debug=True
-    APP.run()
-
-
