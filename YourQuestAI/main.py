@@ -80,8 +80,8 @@ def add():
     global currentChoice
     global currentStep
     global game_on
-    global promptName;
-    global promptStory;
+    global promptName
+    global promptStory
     if request.method == 'POST':
         promptName += request.form.get('variableName')
         promptStory += request.form.get('variableStory')
