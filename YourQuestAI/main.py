@@ -1,4 +1,3 @@
-
 import flask
 from flask import request
 import openai
@@ -15,7 +14,6 @@ currentChoice = ''
 currentStep = 0
 bad_choice = ''
 game_on = True
-
 
 class talkingRobot:
     def __init__(self, promptName, promptStory, currentSummary, currentChoice, currentStep):
@@ -84,13 +82,12 @@ class talkingRobot:
         ).get("choices")[0].text
         print(f"The choices are: {self.choices}")
         return self.choices
-
     def choices_separated(self):
         self.options = []
         self.options = self.choices.split("\n")
-        self.final_choice = [self.options[2], self.options[3], self.options[4]]
+        print(self.options)
+        self.final_choice = [self.options[0], self.options[1], self.options[2]]
         return self.final_choice
-    
     def createVisualDesc(self):
         self.visual = openai.Completion.create(
             engine="text-davinci-003",
