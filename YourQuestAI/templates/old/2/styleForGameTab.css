@@ -63,9 +63,7 @@ body{
 }
 
 .image {
-  display: block;
-  position: relative;
-  width:750px;
+ width:750px;
   height:750px;
   box-shadow: 0px 0px 10px 20px #0e0e0e inset;
   border: 1px;
@@ -79,35 +77,6 @@ body{
   height:750px;
   z-index: -1;
 }
- .image:hover .imageOverlay{
- opacity: 1;
- }
-
-.imageOverlay {
-  cursor: pointer;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 750px;
-  width: 750px;
-  opacity: 0;
-  position: absolute;
-  transition: .5s ease;
-  background-color: rgba(14, 29, 32, .8);
-}
-
-.textimageOverlay{
-  position: absolute;
-  font-family: 'Roboto Slab' ;
-  color: #ffffe6;
-  font-size: 18px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
 .text {
   display:flex;
   justify-content: center;
@@ -142,9 +111,9 @@ form{
 }
 .choice:hover {
  cursor: pointer;
- background: #13464f;
- border: 1px solid #ffe354;
- transition: .5s ease;
+ outline: 1px solid #bfa002;
+ outline-offset: 5px;
+ border: 1px solid rgba(14, 50, 57, 0.7);
 }
 
 @keyframes rotate {
@@ -156,10 +125,6 @@ form{
   syntax: '<angle>';
   initial-value: 0deg;
   inherits: false;
-}
-
-#downloadImage{
-
 }
 
 @keyframes load {
@@ -199,3 +164,79 @@ display:flex;
  position:absolute;
  background-image: linear-gradient(to top, rgba(14,14,14,1), rgba(14,14,14,0.6));
 }
+
+/*animate CSS button*/
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button{
+  color: #ffffe6;
+  width: 100%;
+  border: 1px solid #bfa002;
+  background-color: rgba(14, 50, 57, 0.7);
+  margin-top: 20px;
+  padding: 10px 10px;
+  font-family: 'Roboto Slab' ;
+  font-size: 17px;
+  padding-left:20px;
+  text-align: left;
+  letter-spacing: 1px;
+
+  position: relative;
+  background: none;
+  border: none;
+}
+span{
+  display: block;
+  padding: 25px 80px;
+}
+button::before, button::after{
+  content:"";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: #fff;
+}
+
+span::before, span::after{
+  content:"";
+  width:2px;
+  height:0;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: #fff;
+}
+button:hover::before, button:hover::after{
+  width: 100%;
+}
+button:hover span::before, button:hover span::after{
+  height: 100%;
+}
+
+/*----- button 4 -----*/
+.btn-4::after{
+  right:0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.btn-4 span::after{
+  right:0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.btn-4::before{
+  left: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+.btn-4 span::before{
+  left: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+

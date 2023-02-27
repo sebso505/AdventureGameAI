@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body, html {
   height: 100%;
   margin: 0;
+
 }
 .bg{
   background-image: url("images/start_background.jpg");
@@ -83,6 +85,7 @@ input[type=submit] {
 }
 input[type=submit]:hover {
 background: #13464f;
+transition: .5s ease;
 }
 .button {
   font-family: 'Roboto Slab' ;
@@ -115,4 +118,42 @@ background: #13464f;
   border-color: #bfa002;
   border-style: solid;
 }
+}
+@keyframes load {
+    0%{
+    opacity: 0.1;
+				filter: blur(2px);
+				letter-spacing: 5px;
+
+        }
+    100%{
+        }
+}
+
+
+#animate {
+    position:absolute;
+    font-weight:300;
+    z-index:100;
+	display:none;
+	justify-content: center;
+	align-items: center;
+	height:100%;
+	margin: auto;
+	font-family: 'Roboto', sans-serif;
+	animation: load 2s infinite 0s ease-in-out;
+	animation-direction: alternate;
+	color:#bfa002;
+	font-size:50px;
+	text-shadow: 2px 2px 5px black;
+}
+#gradOverlay {
+display:none;
+ height: 100%;
+ width: 100%;
+ margin:0;
+ top:0;
+ z-index:99;
+ position:absolute;
+ background-image: linear-gradient(to top, rgba(14,14,14,1), rgba(14,14,14,0.6));
 }

@@ -9,25 +9,71 @@
 
 </head>
 <body>
-<div class="altContainer">
+<div id="gradOverlay"></div>
+<h2 id="animate">HANG ON! AI is thinking...</h2>
+<div class="container750">
     <div class="containerMain">
-        <div class="containerTextAndImage">
+        <div class="containerTextAndButtons">
             <div class="text">
                 {{plot}}
             </div>
-            <div class="image">
-                <img src="{{image}}">
+            <div class="containerButtons">
+                <form action=" " method="POST">
+                    <input class="choice" name="choice" type="submit" value="{{choice1}}">
+                    <input class="choice" name="choice" type="submit" value="{{choice2}}">
+                    <input class="choice" name="choice" type="submit" value="{{choice3}}">
+                </form>
             </div>
         </div>
-        <div class="containerButtons">
-            <form action=" " method="POST" >
-                <input type="submit" class="choice" name="choice" value="{{choice1}}">
-                <input type="submit" class="choice" name="choice" value="{{choice2}}">
-                <input type="submit" class="choice" name="choice" value="{{choice3}}">
-            </form>
+        <div class="image">
+            <img id="downloadImage" src="https://easydrawingguides.com/wp-content/uploads/2017/02/How-to-draw-a-cartoon-tree-20.png">
+            <div class="imageOverlay" onclick="downloadImage()">
+                <div class="textimageOverlay">Click to download the image</div>
+            </div>
         </div>
     </div>
 </div>
+</div>
 <div class="grad"></div>
+<script>
+  window.onload = function() {
+  document.getElementById("gradOverlay").style.display = "none";
+  document.getElementById("animate").style.display = "none";
+  }
+  window.onbeforeunload = function() {
+  document.getElementById("gradOverlay").style.display = "flex";
+  document.getElementById("animate").style.display = "flex";
+  }
+
+function downloadImage() {
+        let image = document.getElementById("downloadImage");
+        let link = document.createElement('a');
+        link.href = image.src;
+        link.download = "image.jpg";
+        link.target="_blank"
+        link.click();
+        console.log(link.href)
+        downloadImage(link.click)
+
+}
+function downloadImage(url) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.responseType = 'blob';
+  xhr.onload = function() {
+    if (this.status === 200) {
+      const blob = this.response;
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.download = 'image.jpeg';
+      a.href = window.URL.createObjectURL(blob);
+      a.click();
+    }
+  };
+  xhr.send();
+}
+
+
+</script>
 </body>
 </html>
