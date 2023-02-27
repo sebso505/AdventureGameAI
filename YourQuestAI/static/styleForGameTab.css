@@ -95,6 +95,11 @@ filter: sepia(0.30);
   border-style: solid;
   padding: 10px 10px;
   display:block;
+  font-family: 'Roboto Slab' ;
+  font-size: 17px;
+ padding-left:20px;
+  text-align: left;
+  letter-spacing: 1px;
 }
 .choice.pointer {
   cursor: pointer;
@@ -102,13 +107,6 @@ filter: sepia(0.30);
 .choice:hover {
  cursor: pointer;
  background-color: rgba(8, 26, 29, 1);
-}
-.textMain{
-  font-family: 'Roboto Slab' ;
-  font-size: 17px;
-  margin-left: 1%;
-  text-align: left;
-  letter-spacing: 1px;
 }
 
 
