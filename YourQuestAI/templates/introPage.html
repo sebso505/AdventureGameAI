@@ -11,6 +11,8 @@
 </head>
 <body>
 <div class="bg">
+    <div id="gradOverlay"></div>
+    <h2 id="animate">HANG ON! AI is thinking...</h2>
     <div class="container">
         <div class="gametitle">
             YourQuestAI
@@ -39,6 +41,11 @@
         </form>
     </div>
 </div>
-
+<script>
+  window.onbeforeunload = function() {
+  document.getElementById("gradOverlay").style.display = "flex";
+  document.getElementById("animate").style.display = "flex";
+  }
+</script>
 </body>
 </html>

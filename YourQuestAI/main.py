@@ -1,8 +1,9 @@
 import flask
 from flask import request
 import openai
+import random
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Create the application.
 APP = flask.Flask(__name__)
@@ -47,65 +48,35 @@ class talkingRobot:
             self.prompt = f"{self.robot_act}Based on {self.currentSummary} and the fact that this choice was picked {self.currentChoice} create an ending for the story, where {self.name} emerges victorious, 2 or 3 sentences long."
         else:
             self.prompt = f"{self.robot_act}Based on {self.currentSummary} and the fact that this choice was picked {self.currentChoice} create a plot, 2 or 3 sentences long"
-        self.plot = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=self.prompt,
-            max_tokens=1000,
-            n=1,
-            stop=None,
-            temperature=0.9,
-        ).get("choices")[0].text
+        self.plot = "Test Plot"
         print(f'The plot is:{self.plot} What is your choice, {self.name}?')
         return self.plot
 
     def summary_of_plot(self):
-        self.summary = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=f"{self.robot_act} Create a summary for this plot: {self.plot}, max 2 or 3 sentences",
-            max_tokens=350,
-            n=1,
-            stop=None,
-            temperature=0.8,
-        ).get("choices")[0].text
+        self.summary = "Summary of Plot"
         print(f"The summary is: {self.summary}")
         print("End of summary")
         return self.summary
 
     def choices_robot(self):
-        self.choices = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=f"{self.robot_act} Reading this plot: {self.plot} generate 3 choices, noted 1. through 3. from which I should choose to continue the game. It is a must that you make one of the choices bad. Also, at the end of the bad one, write the character ~, but for the other choices, dont write anything after them.",
-            max_tokens=300,
-            n=1,
-            stop=None,
-            temperature=0.8,
-        ).get("choices")[0].text
+        self.choices = "\n\n Test Choice1\nTest Choice2\nTest Choice3"
         print(f"The choices are: {self.choices}")
         return self.choices
     def choices_separated(self):
         self.options = []
         self.options = self.choices.split("\n")
         print(self.options)
-        self.final_choice = [self.options[0], self.options[1], self.options[2]]
+        self.final_choice = [self.options[2], self.options[3], self.options[4]]
         return self.final_choice
     def createVisualDesc(self):
-        self.visual = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=f"Reading this plot: {self.summary} generate a visual description, 2 sentences long. Keep in mind that i will use this to generate an image with DALL-E",
-            max_tokens=300,
-            n=1,
-            stop=None,
-            temperature=0.8,
-        ).get("choices")[0].text
+        self.visual = ''
         print(f"The visual desc is: {self.visual}")
         return self.visual
     def generateImage(self):
-        self.image = openai.Image.create(
-        prompt=f"A gorgeous  digital illustration of {self.visual}, detailed, trending in artstation, fantasy, mesmerizing, captivating",
-        n=2,
-        size="512x512"
-        ).get("data")[0].url
+        self.image = "static/generated/image13.jpg"
         return self.image
+
+
 @APP.route('/')
 def index():
     """ Displays the index page accessible at '/'
@@ -155,10 +126,18 @@ def add():
             game.update_params(currentSummary, currentChoice, currentStep)
             plot = game.plot_of_game()
             currentSummary = game.summary_of_plot()
-            # if game_on:
-            #     return flask.render_template('GoodEnd.html', plot=plot)
-            # else:
-            #     return flask.render_template('BadEnd.html', plot=plot)
+            if game_on:
+                return flask.render_template('GoodEnd.html', plot=plot)
+            else:
+                return flask.render_template('BadEnd.html', plot=plot)
+            promptName = ''
+            promptStory = ''
+            currentSummary = ''
+            currentChoice = ''
+            currentStep = 0
+            bad_choice = ''
+            game_on = True
+
 
 
 if __name__ == '__main__':

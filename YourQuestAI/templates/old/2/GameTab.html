@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="utf-8"/>
+    <title>YourQuestAI</title>
+    <link href="{{ url_for('static',
+              filename='styleForGameTab.css')}}" rel="stylesheet"
+          type="text/css"/>
+
+</head>
+<body>
+<div id="gradOverlay"></div>
+<h2 id="animate">HANG ON! AI is thinking...</h2>
+<div class="container750">
+    <div class="containerMain">
+        <div class="containerTextAndButtons">
+            <div class="text">
+                {{plot}}
+            </div>
+            <div class="containerButtons">
+                <form action=" " method="POST">
+                    <input type="submit" class="choice" name="choice" value="{{choice1}}">
+                    <input type="submit" class="choice" name="choice" value="{{choice2}}">
+                    <input type="submit" class="choice" name="choice" value="{{choice3}}">
+                    <button class="btn-4" type="submit" name="choice" value="{{choice3}}"><span>{{choice3}}</span></button>
+                    <button class="btn-4" type="submit" name="choice" value="{{choice3}}"><span>{{choice3}}</span></button>
+                    <button class="btn-4" type="submit" name="choice" value="{{choice3}}"><span>{{choice3}}</span></button>
+
+                </form>
+            </div>
+        </div>
+        <div class="image">
+            <img src="{{image}}">
+        </div>
+    </div>
+</div>
+<div class="grad"></div>
+<script>
+  window.onload = function() {
+  document.getElementById("gradOverlay").style.display = "none";
+  document.getElementById("animate").style.display = "none";
+  }
+
+  window.onbeforeunload = function() {
+  document.getElementById("gradOverlay").style.display = "flex";
+  document.getElementById("animate").style.display = "flex";
+  }
+
+
+</script>
+</body>
+</html>
