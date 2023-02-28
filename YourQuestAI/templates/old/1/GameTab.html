@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="utf-8"/>
+    <title>YourQuestAI</title>
+    <link href="{{ url_for('static',
+              filename='styleForGameTab.css')}}" rel="stylesheet"
+          type="text/css"/>
+
+</head>
+<body>
+<div class="altContainer">
+    <div class="containerMain">
+        <div class="containerTextAndImage">
+            <div class="text">
+                {{plot}}
+            </div>
+            <div class="image">
+                <img src="{{image}}">
+            </div>
+        </div>
+        <div class="containerButtons">
+            <form action=" " method="POST" >
+                <input type="submit" class="choice" name="choice" value="{{choice1}}">
+                <input type="submit" class="choice" name="choice" value="{{choice2}}">
+                <input type="submit" class="choice" name="choice" value="{{choice3}}">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="grad"></div>
+</body>
+</html>

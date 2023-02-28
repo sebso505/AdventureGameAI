@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="utf-8"/>
+    <title>YourQuestAI</title>
+    <link href="{{ url_for('static',
+              filename='styleBadEnd.css')}}" rel="stylesheet"
+          type="text/css"/>
+
+</head>
+<body>
+<div class="containerMain">
+    <div class="image">
+        <img src="static/generated/image2.jpg">
+    </div>
+    <div class="containerContentAndButtonAlign">
+        <div class="container">
+            <div class="title">Defeat!</div>
+            <div class="textPlot">
+               {{plot}}
+            </div>
+        </div>
+        <div class="homeButtonContainer">
+            <div class="homeButton">
+                <div class="textForHomeButton">Journey into a new adventure!</div>
+            </div>
+        </div>
+    </div>
+    <div class="grad"></div>
+</div>
+</body>
+</html>
