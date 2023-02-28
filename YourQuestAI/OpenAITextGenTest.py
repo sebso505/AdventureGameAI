@@ -24,15 +24,15 @@ class talkingRobot:
 
     def plot_of_game(self, ):
         if not game_on:
-            self.prompt = f"{self.robot_act}Based on {self.currentSummary}  and the fact that this choice was picked {self.currentChoice} create an ending for the story, where {self.name} is defeated tragically, 2 or 3 sentences long."
+            self.prompt = f"{self.robot_act}We are in the world of {self.book}.Based on {self.currentSummary}  and the fact that this choice was picked {self.currentChoice} create an ending for the story, where {self.name} is defeated tragically, 2 or 3 sentences long."
         elif currentStep == 0:
-            self.prompt = f"{self.robot_act}Based on the book or game: {self.book} and create an intro, 5 sentences long, in which you introduce me, {self.name}, the main character , in the game. You narrate this intro about me."
+            self.prompt = f"{self.robot_act}We are in the world of {self.book}.Based on the book or game: {self.book} and create an intro, 5 sentences long, in which you introduce me, {self.name}, the main character , in the game. You narrate this intro about me."
         elif currentStep == 8:
-            self.prompt = f"{self.robot_act}Based on {self.currentSummary}  and the fact that this choice was picked {self.currentChoice} create a story that is nearing its conclusion, 2 or 3 sentences long."
+            self.prompt = f"{self.robot_act}We are in the world of {self.book}.Based on {self.currentSummary}  and the fact that this choice was picked {self.currentChoice} create a story that is nearing its conclusion, 2 or 3 sentences long."
         elif currentStep == 9:
-            self.prompt = f"{self.robot_act}Based on {self.currentSummary}  and the fact that this choice was picked {self.currentChoice} create a cliffhanger for the story, 2 or 3 sentences long."
+            self.prompt = f"{self.robot_act}We are in the world of {self.book}.Based on {self.currentSummary}  and the fact that this choice was picked {self.currentChoice} create a cliffhanger for the story, 2 or 3 sentences long."
         elif currentStep == 10:
-            self.prompt = f"{self.robot_act}Based on {self.currentSummary}  and the fact that this choice was picked {self.currentChoice} create an ending for the story, where {self.name} emerges victorious, 2 or 3 sentences long."
+            self.prompt = f"{self.robot_act}We are in the world of {self.book}.Based on {self.currentSummary}  and the fact that this choice was picked {self.currentChoice} create an ending for the story, where {self.name} emerges victorious, 2 or 3 sentences long."
         else:
             self.prompt = f"{self.robot_act} We are in the world of {self.book}. Based on {self.currentSummary} and the fact that this choice was picked {self.currentChoice}, create the story, 2 or 3 sentences long"
         self.plot = openai.Completion.create(

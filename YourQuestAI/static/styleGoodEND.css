@@ -64,6 +64,11 @@ body{
   border-color: #00cccc;
   background-color: rgba(14, 50, 57, 0.7);
   border-style: solid;
+  padding: 10px 10px;
+  font-family: 'Roboto Slab' ;
+  font-size: 17px;
+  text-align: right;
+  letter-spacing: 1px;
 }
 .homeButton.pointer {
   cursor: pointer;
@@ -71,13 +76,6 @@ body{
 .homeButton:hover {
  cursor: pointer;
  background-color: rgba(8, 26, 29, 1);
-}
-.textForHomeButton{
-  padding: 10px 10px;
-  font-family: 'Roboto Slab' ;
-  font-size: 17px;
-  text-align: right;
-  letter-spacing: 1px;
 }
 .textPlot {
   height:60%;
