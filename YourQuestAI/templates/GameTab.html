@@ -9,26 +9,64 @@
 
 </head>
 <body>
-<div class="altContainer">
+<div id="gradOverlay"></div>
+<h2 id="animate">HANG ON! AI is thinking...</h2>
+<div class="container750">
     <div class="containerMain">
-        <div class="containerTextAndImage">
+        <div class="containerTextAndButtons">
             <div class="text">
                 {{plot}}
             </div>
-            <div class="image">
-                <img src="{{image}}">
+            <div class="containerButtons">
+                <form action=" " method="POST">
+                    <input class="choice" name="choice" type="submit" value="{{choice1}}">
+                    <input class="choice" name="choice" type="submit" value="{{choice2}}">
+                    <input class="choice" name="choice" type="submit" value="{{choice3}}">
+                </form>
             </div>
         </div>
-        <div class="containerButtons">
-            <form action=" " method="POST" >
-                <input type="submit" class="choice" name="choice" value="{{choice1}}">
-                <input type="submit" class="choice" name="choice" value="{{choice2}}">
-                <input type="submit" class="choice" name="choice" value="{{choice3}}">
-            </form>
+        <div class="image">
+            <img  src="https://easydrawingguides.com/wp-content/uploads/2017/02/How-to-draw-a-cartoon-tree-20.png">
+            <div class="overlay" onclick="downloadImage()">
+  <a href="https://easydrawingguides.com/wp-content/uploads/2017/02/How-to-draw-a-cartoon-tree-20.png" >Download Image</a>
+  <img src="https://easydrawingguides.com/wp-content/uploads/2017/02/How-to-draw-a-cartoon-tree-20.png" id="image">
+</div>
+  </a>
+</div>
+
+            </div>
         </div>
     </div>
 </div>
+</div>
 <div class="grad"></div>
+<script>
+  window.onload = function() {
+  document.getElementById("gradOverlay").style.display = "none";
+  document.getElementById("animate").style.display = "none";
+  }
+  window.onbeforeunload = function() {
+  document.getElementById("gradOverlay").style.display = "flex";
+  document.getElementById("animate").style.display = "flex";
+  }
+  var downloadLink = document.getElementById('image');
+  downloadLink.addEventListener('click', function() {
+  downloadLink.click();
+  });
+function downloadImage() {
+  var image = document.getElementById('image');
+  var url = image.src;
+  var filename = 'image.png';
+  var link = document.createElement('a');
+  link.setAttribute('href', url);
+  link.setAttribute('download', filename);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+
+
+</script>
 </body>
 </html>
-
