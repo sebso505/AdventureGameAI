@@ -11,7 +11,7 @@
 <body>
 <div class="containerMain">
     <div class="image">
-        <img src="static/generated/image2.jpg">
+        <img src="{{image}}">
     </div>
     <div class="containerContentAndButtonAlign">
         <div class="container">
@@ -21,12 +21,33 @@
             </div>
         </div>
         <div class="homeButtonContainer">
-            <div class="homeButton">
-                <div class="textForHomeButton">Journey into a new adventure!</div>
-            </div>
+          <form action=" " method="POST">
+                  <input type="submit" class="homeButton" value="Journey into a new adventure!">
+            </form>
         </div>
     </div>
     <div class="grad"></div>
 </div>
+<script>
+  window.onload = function() {
+  document.getElementById("gradOverlay").style.display = "none";
+  document.getElementById("animate").style.display = "none";
+  }
+  window.onbeforeunload = function() {
+  document.getElementById("gradOverlay").style.display = "flex";
+  document.getElementById("animate").style.display = "flex";
+  }
+
+function downloadFile() {
+        let image = document.getElementById("downloadImage");
+        let link = document.createElement('a');
+        link.href = image.src;
+        link.download = "image.jpg";
+        link.target="_blank"
+        console.log(link.href)
+        link.click();
+ }
+
+</script>
 </body>
 </html>

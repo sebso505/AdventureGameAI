@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>YourQuestAI</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="static/images/ai_logo.png" rel="icon" type="image/x-icon">
     <link href="{{ url_for('static',
               filename='styleForIntro.css')}}" rel="stylesheet"
           type="text/css"/>
@@ -21,22 +21,25 @@
             Welcome to your next adventure!
         </div>
         <form action="" method="POST">
+        <label for="name">
+            <div class="textask">What is your name, Adventurer?</div>
+        </label>
+        <div class="containerButtonAndTextInput">
 
-            <label for="name">
-                <div class="textask">What is your name, Adventurer?</div>
-            </label>
-            <div class="containerButtonAndTextInput">
-                <input id="name" name="variableName" placeholder="Your name..." required type="text">
-                <button class="button">RANDOM</button>
-            </div>
+                <input id="name" name="variableName" placeholder="Your Name..." required type="text">
 
-            <label for="story">
-                <div class="textask">Tell me a book/videogame:</div>
-            </label>
-            <div class="containerButtonAndTextInput">
+        </div>
+
+        <label for="story">
+            <div class="textask">Tell me a book/videogame:</div>
+        </label>
+        <div class="containerButtonAndTextInput">
+
                 <input id="story" name="variableStory" placeholder="Book/Videogame..." required type="text">
-                <button class="button">RANDOM</button>
-            </div>
+
+        </div>
+
+            <input name="button" type="hidden" value="start">
             <input type="submit" value="Start Your Journey">
         </form>
     </div>
@@ -46,6 +49,8 @@
   document.getElementById("gradOverlay").style.display = "flex";
   document.getElementById("animate").style.display = "flex";
   }
+
+
 </script>
 </body>
 </html>
