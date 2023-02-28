@@ -19,20 +19,20 @@
             </div>
             <div class="containerButtons">
                 <form action=" " method="POST">
-                    <input class="choice" name="choice" type="submit" value="{{choice1}}">
-                    <input class="choice" name="choice" type="submit" value="{{choice2}}">
-                    <input class="choice" name="choice" type="submit" value="{{choice3}}">
+                    <input type="submit" class="choice" name="choice" value="{{choice1}}">
+                    <input type="submit" class="choice" name="choice" value="{{choice2}}">
+                    <input type="submit" class="choice" name="choice" value="{{choice3}}">
+                    <button class="btn-4" type="submit" name="choice" value="{{choice3}}"><span>{{choice3}}</span></button>
+                    <button class="btn-4" type="submit" name="choice" value="{{choice3}}"><span>{{choice3}}</span></button>
+                    <button class="btn-4" type="submit" name="choice" value="{{choice3}}"><span>{{choice3}}</span></button>
+
                 </form>
             </div>
         </div>
         <div class="image">
-            <img id="downloadImage" src="{{image}}">
-            <div class="imageOverlay" onclick="downloadFile()">
-                <div class="textimageOverlay">Click to download the image</div>
-            </div>
+            <img src="{{image}}">
         </div>
     </div>
-</div>
 </div>
 <div class="grad"></div>
 <script>
@@ -40,20 +40,12 @@
   document.getElementById("gradOverlay").style.display = "none";
   document.getElementById("animate").style.display = "none";
   }
+
   window.onbeforeunload = function() {
   document.getElementById("gradOverlay").style.display = "flex";
   document.getElementById("animate").style.display = "flex";
   }
 
-function downloadFile() {
-        let image = document.getElementById("downloadImage");
-        let link = document.createElement('a');
-        link.href = image.src;
-        link.download = "image.jpg";
-        link.target="_blank"
-        console.log(link.href)
-        link.click();
- }
 
 </script>
 </body>
