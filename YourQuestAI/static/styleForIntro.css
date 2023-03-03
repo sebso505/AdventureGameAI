@@ -54,7 +54,7 @@ body, html {
   }
 input[type=text], select {
   color:#0e0e0e;
-  width: 100%;
+  width: 64%;
   font-family: 'Roboto Slab' ;
   font-size: 25px;
   padding: 11px 0px;
@@ -171,4 +171,8 @@ display:none;
  z-index:99;
  position:absolute;
  background-image: linear-gradient(to top, rgba(14,14,14,1), rgba(14,14,14,0.6));
+}
+
+.hide{
+display:none;
 }
