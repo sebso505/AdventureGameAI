@@ -7,12 +7,11 @@ import os
 import requests  # to get image from the web
 import shutil  # to save it locally
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Create the application.
 APP = flask.Flask(__name__)
-
-
+gameRestart = 1
 promptName = ''
 promptStory = ''
 currentSummary = ''
@@ -24,10 +23,9 @@ allImgDir = "YourQuestAIImages"
 projectDir = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Documents\GitHub\AdventureGameAI\YourQuestAI\static')
 imageDir = os.path.join(projectDir, allImgDir)
 folderNo = ''
-game = 'Book/Videogame...'
 name = 'Your name...'
+game = 'Book/Videogame...'
 print(imageDir)
-
 
 def makeDIRforDALLE():
     if not folderNo:
@@ -38,11 +36,11 @@ def makeDIRforDALLE():
             numberWeShouldUse = 1
             print(f'from 1 {numberWeShouldUse}')
         else:
-            dir_list = os.listdir(os.path.join(projectDir, allImgDir))
-            dir_names = [name for name in dir_list if os.path.isdir(os.path.join(os.path.join(projectDir, allImgDir), name))]
-            print(dir_names)
-            dirNumber = len(dir_names)
-            lastIteminDirnames = dir_names[dirNumber - 1]
+            dir_list = os.listdir(imageDir)
+            dir_list.sort(key=lambda x: os.stat(os.path.join(imageDir, x)).st_mtime)
+            print(dir_list)
+            dirNumber = len(dir_list)
+            lastIteminDirnames = dir_list[dirNumber - 1]
             numberWeShouldUse = lastIteminDirnames.replace('Game', '')
             numberWeShouldUse= int(numberWeShouldUse) + 1
             os.makedirs(os.path.join(imageDir, 'Game' + str(numberWeShouldUse)))
@@ -89,7 +87,6 @@ class talkingRobot:
             stop=None,
             temperature=0.9,
         ).get("choices")[0].text
-        print(f'The plot is:{self.plot} What is your choice, {self.name}?')
         return self.plot
 
     def summary_of_plot(self):
@@ -108,11 +105,11 @@ class talkingRobot:
     def choices_robot(self):
         self.choices = openai.Completion.create(
             engine="text-davinci-003",
-            prompt=f"{self.robot_act} Reading this plot {self.plot} generate 3 choices, each on a new line, dont note them with numbers, from which I should choose to continue the game. It is a must that you make one of the choices bad. Also, at the end of the bad one, write the character ~, but for the other choices, dont write anything after them.",
+            prompt=f"{self.robot_act} Reading this plot {self.plot} generate 3 choices, noted 1 through 3, each choice should be maximum 90 characters, from which I should choose to continue the game. It is a must that you make one of the choices bad. Also, at the end of the bad one, write the character ~, but for the other choices, dont write anything after them.",
             max_tokens=300,
             n=1,
             stop=None,
-            temperature=0.8,
+            temperature=0,
         ).get("choices")[0].text
         print(f"The choices are: {self.choices}")
         return self.choices
@@ -121,6 +118,8 @@ class talkingRobot:
         self.options = self.choices.split("\n")
         print(self.options)
         self.final_choice = [self.options[2], self.options[3], self.options[4]]
+        for i in range(len(self.final_choice)):
+            self.final_choice[i] = self.final_choice[i].split(".")[1]
         random.shuffle(self.final_choice)
         return self.final_choice
     def createVisualDesc(self):
@@ -150,48 +149,43 @@ class talkingRobot:
         print(self.imageName)
         # Open the url image, set stream to True, this will return the stream content.
         r = requests.get(image_url, stream=True)
-
         # Check if the image was retrieved successfully
         if r.status_code == 200:
             # Set decode_content value to True, otherwise the downloaded image file's size will be zero.
             r.raw.decode_content = True
-
             # Open a local file with wb ( write binary ) permission.
             with open(imageTrueLocation, 'wb') as f:
                 shutil.copyfileobj(r.raw, f)
-
             print('Image sucessfully Downloaded: ', imageTrueLocation)
         else:
             print('Image Couldn\'t be retreived')
-
         return self.imageName
-
-class genRandom:
-    def __init__(self):
-        self.name = ''
-        self.game = ''
-    def getRandomName(self):
-        self.name = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt="Give me a random Character Name",
-            max_tokens=350,
-            n=1,
-            stop=None,
-            temperature=0.8,
-        ).get("choices")[0].text
-        print(f'Random name is {self.name}')
-        return self.name
-    def getRandomGame(self):
-        self.game = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt="Give me a random Book or Game or Movie. Only the name should be returned",
-            max_tokens=350,
-            n=1,
-            stop=None,
-            temperature=1,
-        ).get("choices")[0].text
-        print(f'Random game is {self.game}')
-        return self.game
+# class genRandom:
+#     def __init__(self):
+#         self.name = ''
+#         self.game = ''
+#     def getRandomName(self):
+#         self.name = openai.Completion.create(
+#             engine="text-davinci-003",
+#             prompt="Give me a random Character Name",
+#             max_tokens=350,
+#             n=1,
+#             stop=None,
+#             temperature=0.8,
+#         ).get("choices")[0].text
+#         print(f'Random name is {self.name}')
+#         return self.name
+#     def getRandomGame(self):
+#         self.game = openai.Completion.create(
+#             engine="text-davinci-003",
+#             prompt="Give me a random Book or Game or Movie. Only the name should be returned",
+#             max_tokens=350,
+#             n=1,
+#             stop=None,
+#             temperature=1,
+#         ).get("choices")[0].text
+#         print(f'Random game is {self.game}')
+#         return self.game
 
 @APP.route('/')
 def index():
@@ -212,21 +206,18 @@ def add():
     global folderNo
     global game
     global name
+    global gameRestart
+    global imageDir
     print(folderNo)
     print(f'game status {game_on}')
     if request.method == 'POST':
         if currentStep == 0:
-            # generated = genRandom()
-            # if request.form["button"] == "randomName":
-            #     name = generated.getRandomName()
-            #     return flask.render_template('introPage.html', name=name, game=game)
-            # elif request.form["button"] == "randomGame":
-            #     game = generated.getRandomGame()
-            #     return flask.render_template('introPage.html', name=name, game=game)
             promptName = request.form.get('variableName')
             promptStory = request.form.get('variableStory')
+            print("USER INPUT")
             print(promptName)
             print(promptStory)
+            print("END USER INPUT")
             folderNo = makeDIRforDALLE()
         else:
             currentChoice = request.values.get('choice')
@@ -252,6 +243,33 @@ def add():
             print(f'Pasul curent {currentStep}')
             print(f'Alegere Gresita {bad_choice}')
             return flask.render_template('GameTab.html', plot=plot, choice1=choices[0], choice2=choices[1], choice3 = choices[2], bad_choice=bad_choice, image=imageGen)
+        elif not game_on:
+            if gameRestart:
+                game.update_params(currentSummary, currentChoice, currentStep)
+                plot = game.plot_of_game()
+                currentSummary = game.summary_of_plot()
+                game.createVisualDesc()
+                imageGen = game.generateImage()
+                gameRestart = 0
+                return flask.render_template('BadEnd.html', plot=plot, image=imageGen)
+            else:
+                gameRestart = 1
+                promptName = ''
+                promptStory = ''
+                currentSummary = ''
+                currentChoice = ''
+                currentStep = 0
+                bad_choice = ''
+                game_on = True
+                print (f"GAME STATUS SET TO {game_on}")
+                allImgDir = "YourQuestAIImages"
+                projectDir = os.path.join(os.path.join(os.environ['USERPROFILE']),
+                                          'Documents\GitHub\AdventureGameAI\YourQuestAI\static')
+                imageDir = os.path.join(projectDir, allImgDir)
+                folderNo = ''
+                game = 'Book/Videogame...'
+                name = 'Your name...'
+                return flask.render_template('introPage.html',name=name, game=game)
         elif currentStep == 10:
             game.update_params(currentSummary, currentChoice, currentStep)
             plot = game.plot_of_game()
@@ -259,11 +277,9 @@ def add():
             game.createVisualDesc()
             imageGen = game.generateImage()
             currentStep += 1
-            if game_on:
-                return flask.render_template('GoodEnd.html', plot=plot,image=imageGen)
-            else:
-                return flask.render_template('BadEnd.html', plot=plot)
-        elif currentStep == 11:
+            return flask.render_template('GoodEnd.html', plot=plot, image=imageGen)
+        else:
+            gameRestart = 1
             promptName = ''
             promptStory = ''
             currentSummary = ''
@@ -271,13 +287,16 @@ def add():
             currentStep = 0
             bad_choice = ''
             game_on = True
+            print(f"GAME STATUS SET TO {game_on}")
             allImgDir = "YourQuestAIImages"
             projectDir = os.path.join(os.path.join(os.environ['USERPROFILE']),
                                       'Documents\GitHub\AdventureGameAI\YourQuestAI\static')
             imageDir = os.path.join(projectDir, allImgDir)
             folderNo = ''
-            print(imageDir)
-            return flask.render_template('introPage.html')
+            game = 'Book/Videogame...'
+            name = 'Your name...'
+            return flask.render_template('introPage.html',name=name, game=game)
+
 
 
 if __name__ == '__main__':

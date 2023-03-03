@@ -11,7 +11,10 @@
 <body>
 <div class="containerMain">
     <div class="image">
-        <img src="{{image}}">
+        <img id="downloadImage" src="{{image}}">
+        <div class="imageOverlay" onclick="downloadFile()">
+                <div class="textimageOverlay">Click to download the image</div>
+            </div>
     </div>
     <div class="containerContentAndButtonAlign">
         <div class="container">

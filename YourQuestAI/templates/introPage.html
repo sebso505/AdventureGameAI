@@ -21,25 +21,24 @@
             Welcome to your next adventure!
         </div>
         <form action="" method="POST">
-        <label for="name">
-            <div class="textask">What is your name, Adventurer?</div>
-        </label>
-        <div class="containerButtonAndTextInput">
-
-                <input id="name" name="variableName" placeholder="Your Name..." required type="text">
-
-        </div>
-
-        <label for="story">
-            <div class="textask">Tell me a book/videogame:</div>
-        </label>
-        <div class="containerButtonAndTextInput">
-
-                <input id="story" name="variableStory" placeholder="Book/Videogame..." required type="text">
-
-        </div>
-
-            <input name="button" type="hidden" value="start">
+            <label for="name">
+                <div class="textask">What is your name, Adventurer?</div>
+            </label>
+            <div class="containerButtonAndTextInput">
+                <input id="name" name="variableName" placeholder="{{name}}" required type="text">
+                <div class="containerForRandomButtons">
+                        <button class="button" onclick="randomName()">RANDOM</button>
+                </div>
+            </div>
+            <label for="story">
+                <div class="textask">Tell me a book/videogame:</div>
+            </label>
+            <div class="containerButtonAndTextInput">
+                <input id="story" name="variableStory" placeholder="{{game}}" required type="text">
+                <div class="containerForRandomButtons">
+                        <button class="button">RANDOM</button>
+                </div>
+            </div>
             <input type="submit" value="Start Your Journey">
         </form>
     </div>
@@ -49,6 +48,38 @@
   document.getElementById("gradOverlay").style.display = "flex";
   document.getElementById("animate").style.display = "flex";
   }
+  function randomName(){
+  console.log('in fct random')
+  let prompt="Give me a random Character Name"
+  newValue = openAIRequest(prompt)
+  document.getElementById("name").value = newValue ;
+  console.log("this is new value " + newValue)
+  }
+
+function openAIRequest(prompt) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://api.openai.com/v1/completions', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('Authorization', 'Bearer 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');
+
+  xhr.onload = function () {
+    if (this.status == 200) {
+      console.log(this.response);
+      return this.response;
+    }
+  };
+  var options= {
+    "model": "text-davinci-003",
+    "prompt": prompt,
+    "temperature": 0.7,
+    "max_tokens": 256,
+    "top_p": 1,
+    "frequency_penalty": 0.75,
+    "presence_penalty": 0
+  }
+  xhr.send(JSON.stringify(options));
+}
+
 
 
 </script>
