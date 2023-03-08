@@ -7,7 +7,7 @@ import os
 import requests  # to get image from the web
 import shutil  # to save it locally
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Create the application.
 APP = flask.Flask(__name__)

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="91ffc106-def7-49c7-9cff-01b85707511c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../YourQuestAI/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/DALL·E 2023-02-28 17.51.07 - A gorgeous  digital illustration of a sword, detailed, trending in artstation, fantasy, mesmerizing, captivating_,.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image1 (1).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image1 (2).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image1 (3).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image1 (4).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image1 (5).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image1 (6).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image1 (7).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image1-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image2 (1).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image2 (2).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image2 (3).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image2 (4).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image2 (5).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/image2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/img-H679n3xX4UuZZZaPkcwBT0Qq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/img-q1LlTo5LI60fcZoHO8UZ4Rkp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/img-saiPlg5iJFoXcm4qC7UJ4NSM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/img-vlLLBzciVur01EJ4EMWTW0ez.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YourQuestAI/static/YourQuestAIImages/Game1/img-yEV78VMtxVVcmpUroxnndFaa.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2MhQoieN28ybXf8dynESmy4fXbK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Exercises" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="91ffc106-def7-49c7-9cff-01b85707511c" name="Changes" comment="" />
+      <created>1678217510958</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678217510958</updated>
+    </task>
+    <servers />
+  </component>
+</project>
